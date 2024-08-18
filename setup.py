@@ -36,7 +36,7 @@ def check_cuda_torch_binary_vs_bare_metal(cuda_dir):
     print("\nCompiling cuda extensions with")
     print(raw_output + "from " + cuda_dir + "/bin\n")
     print(f"bare_metal_version: {bare_metal_version}")
-    if (bare_metal_version != torch_binary_version) and (bare_metal_version != "12.2"):
+    if (bare_metal_version != torch_binary_version) and (bare_metal_version not in [12.2]):
         raise RuntimeError(
             "Cuda extensions are being compiled with a version of Cuda that does "
             "not match the version used to compile Pytorch binaries.  "
